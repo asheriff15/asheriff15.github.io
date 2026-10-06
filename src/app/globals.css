@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@import "@fontsource/caladea/400.css";
+@import "@fontsource/caladea/700.css";
+@import "@fontsource/caladea/400-italic.css";
+@import "@fontsource/carlito/400.css";
+@import "@fontsource/carlito/700.css";
+@import "@fontsource/carlito/400-italic.css";
+
+/* Palette taken directly from the "Email Security" slide deck */
+@theme {
+  --color-ink: #000000;        /* slide background */
+  --color-panel: #141419;      /* card fill */
+  --color-panel-2: #1a1a20;    /* card border / raised */
+  --color-line: #25252c;       /* hairlines */
+  --color-signal: #d00000;     /* the deck's red */
+  --color-signal-hi: #ff4a44;  /* red on hover/focus */
+  --color-alarm: #2e0a0c;      /* tinted red panel */
+  --color-alarm-line: #60090b; /* tinted red border */
+  --color-paper: #ffffff;
+  --color-muted: #b0b0b2;
+  --color-dim: #6e6d73;
+
+  --font-display: "Caladea", "Cambria", Georgia, serif;
+  --font-sans: "Carlito", "Calibri", system-ui, sans-serif;
+
+  --animate-spin-slow: spin 14s linear infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-ink);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal-hi);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.caret {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.9em;
+  margin-left: 0.06em;
+  background: var(--color-signal);
+  vertical-align: -0.08em;
+  animation: blink 1s step-end infinite;
+}
+
+/* Long-form text on project and writing pages */
+.prose-site h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin: 2.75rem 0 1rem;
+}
+.prose-site h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 2rem 0 0.75rem;
+}
+.prose-site p { margin: 0 0 1.1rem; color: #e4e4e6; }
+.prose-site ul, .prose-site ol { margin: 0 0 1.25rem; padding-left: 1.25rem; color: #e4e4e6; }
+.prose-site ul { list-style: square; }
+.prose-site ol { list-style: decimal; }
+.prose-site li { margin: 0.35rem 0; }
+.prose-site li::marker { color: var(--color-signal); }
+.prose-site strong { color: var(--color-paper); }
+.prose-site a { color: var(--color-paper); text-decoration: underline; text-decoration-color: var(--color-signal); text-underline-offset: 3px; }
+.prose-site code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85em;
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-2);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+.prose-site pre {
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-2);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.prose-site pre code { background: none; border: 0; padding: 0; }
+.prose-site table { width: 100%; border-collapse: collapse; margin: 0 0 1.5rem; font-size: 0.95rem; }
+.prose-site th { text-align: left; color: var(--color-muted); font-weight: 700; border-bottom: 1px solid var(--color-line); padding: 0.6rem 0.75rem 0.6rem 0; }
+.prose-site td { border-bottom: 1px solid var(--color-panel-2); padding: 0.6rem 0.75rem 0.6rem 0; vertical-align: top; color: #e4e4e6; }
+.prose-site blockquote { border-left: 3px solid var(--color-signal); background: var(--color-alarm); padding: 0.75rem 1rem; margin: 0 0 1.25rem; border-radius: 0 6px 6px 0; }
+.prose-site blockquote p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .caret, .animate-spin-slow { animation: none !important; }
+}
