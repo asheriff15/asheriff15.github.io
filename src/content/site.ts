@@ -12,7 +12,7 @@ export const site = {
   // null hides the link.
   email: "adnansheriff.cyber@gmail.com" as string | null,
   github: "https://github.com/asheriff15",
-  linkedin: null as string | null,
+  linkedin: "https://www.linkedin.com/in/adnan-s-058305439" as string | null,
 
   about: [
     "I work on the Cybersecurity, Networks & Telecom team at Fairfax Water, where I triage SIEM alerts, run vulnerability scans and help manage identity and endpoints.",
